@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+/**
+* Module dependencies.
+*/ 
+const app = require('../server')
+const chalk = require('chalk')
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+const normalizePort = val => {
+    var port = parseInt(val, 10);
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+  
+    return false;
+}
+
+/**
+ * Get port from environment and store in Express.
+ */
+const port = normalizePort(process.env.PORT || '3000')
+app.set('port', port)
+
+/**
+* Listens for connections on the specified port.
+*/
+app.listen(app.get('port'), () => {
+    const msg = `Express started on http://localhost:${app.get('port')}
+press Ctrl-c to terminate`
+console.log(chalk.green(msg))
+})
