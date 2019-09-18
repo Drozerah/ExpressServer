@@ -1,0 +1,16 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Express.js application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Drozerah",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "express": "^4.17.1"
+  }
+}
