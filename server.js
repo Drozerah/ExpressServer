@@ -5,6 +5,14 @@ const express = require('express')
 
 const app = express()
 
+/**
+* Router
+*/
+// home
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 // custom 404 page
 app.use((req, res) => {
   res.type('text/plain')
