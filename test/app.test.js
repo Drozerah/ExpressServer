@@ -19,7 +19,7 @@ describe('Express Server', () => {
       })
   })
   /**
-  * GET /undefined-route => status 200
+  * GET /undefined-route => status 404
   */
   const _404 = 404
   it(`should respond with status ${_404} at GET '/undefined-route'`, (done) => {
