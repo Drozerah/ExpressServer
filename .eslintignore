@@ -8,4 +8,5 @@
 dist/*
 
 # Ignore file
+app.test.js
 
