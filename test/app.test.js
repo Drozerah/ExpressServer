@@ -9,7 +9,7 @@ describe('Express Server', () => {
   * GET / => status 200
   */
   const _200 = 200
-  it(`should respond with status ${_200} at GET '/' `, (done) => {
+  it(`GET '/' should respond with status ${_200}`, (done) => {
     chai
       .request(server)
       .get('/')
@@ -23,7 +23,7 @@ describe('Express Server', () => {
   /**
   * GET /about => status 200
   */
-  it(`should respond with status ${_200} at GET '/about' `, (done) => {
+  it(`GET '/about' should respond with status ${_200}`, (done) => {
     chai
       .request(server)
       .get('/about')
@@ -36,7 +36,7 @@ describe('Express Server', () => {
   * GET /undefined-route => status 404
   */
   const _404 = 404
-  it(`should respond with status ${_404} at GET '/undefined-route'`, (done) => {
+  it(`GET '/undefined-route' should respond with status ${_404}`, (done) => {
     chai
       .request(server)
       .get('/undefined-route')
