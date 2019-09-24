@@ -14,8 +14,22 @@ describe('Express Server', () => {
       .request(server)
       .get('/')
       .end((err, res) => {
-          expect(res).to.have.status(_200)
-          done()
+        expect(res).to.have.status(_200)
+        //expect(res.type).to.equal('text/html')
+        //expect(res.text).to.equal('Hello World!')
+        done()
+      })
+  })
+  /**
+  * GET /about => status 200
+  */
+  it(`should respond with status ${_200} at GET '/about' `, (done) => {
+    chai
+      .request(server)
+      .get('/about')
+      .end((err, res) => {
+        expect(res).to.have.status(_200)
+        done()
       })
   })
   /**
@@ -27,22 +41,8 @@ describe('Express Server', () => {
       .request(server)
       .get('/undefined-route')
       .end((err, res) => {
-          expect(res).to.have.status(_404)
-          done()
+        expect(res).to.have.status(_404)
+        done()
       })
   })
-  /**
-  * GET \ => status 404 if app has no routes
-  */
-  // it('responds with status 404 when app has no routes', (done) => {
-  //   chai
-  //     .request(server)
-  //     .get('/')
-  //     .end((err, res) => {
-  //         expect(res.type).to.equal('text/plain')
-  //         expect(res).to.have.status(404)
-  //         expect(res.text).to.equal('404 - Not Found')
-  //         done()
-  //     })
-  // })
 })

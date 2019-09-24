@@ -6,21 +6,24 @@ const express = require('express')
 const app = express()
 
 /**
-* Router
+* Routes
 */
-// home
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const indexRouter = require('./routes/index')
+const aboutRouter = require('./routes/about')
 
-// custom 404 page
+// index page
+app.use('/', indexRouter)
+// about page
+app.use('/about', aboutRouter)
+
+// catch error 404
 app.use((req, res) => {
   res.type('text/plain')
   res.status(404)
   res.send('404 - Not Found')
 })
 
-// custom 500 page
+// error handler
 app.use((err, req, res, next) => {
   console.log(err.stack)
   res.type('text/plain')
