@@ -2,14 +2,23 @@
  * Module dependencies
  */
 const express = require('express')
-
-const app = express()
-
+const app = express() // instanciate Express Application
+/**
+* Lib modules
+*/
+const { logger } = require('./lib/logger')
 /**
 * Routes
 */
 const indexRouter = require('./routes/index')
 const aboutRouter = require('./routes/about')
+
+/* top middleware executed for every request to the app */
+app.use((req, res, next) => {
+  // write logs child process
+  logger(req, 'tmp/http-logs.txt')
+  next()
+})
 
 // index page
 app.use('/', indexRouter)
